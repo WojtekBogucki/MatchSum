@@ -22,7 +22,7 @@ from fastNLP.core.metrics import MetricBase
 try:  
    _ROUGE_PATH = os.environ["ROUGE_PATH"]
 except KeyError: 
-   print "Please set the environment variable FOO"
+   print("Please set the environment variable ROUGE_PATH")
    sys.exit(1)
     
 
