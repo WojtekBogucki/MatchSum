@@ -107,7 +107,7 @@ def test_model(args):
         test_metric = MatchRougeMetric(data=read_jsonl(data_paths['test']), dec_path=dec_path, 
                                   ref_path=ref_path, n_total = len(test_set))
         tester = Tester(data=test_set, model=model, metrics=[test_metric], 
-                        batch_size=args.batch_size, device=device, use_tqdm=False)
+                        batch_size=args.batch_size, device=device, use_tqdm=True)
         tester.test()
 
 if __name__ == '__main__':
