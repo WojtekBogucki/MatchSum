@@ -2,6 +2,7 @@ import numpy as np
 
 import json
 from os.path import join
+import sys
 import torch
 import logging
 import tempfile
@@ -17,7 +18,13 @@ from rouge import Rouge
 from fastNLP.core.losses import LossBase
 from fastNLP.core.metrics import MetricBase
 
-_ROUGE_PATH = '/path/to/RELEASE-1.5.5'
+
+try:  
+   _ROUGE_PATH = os.environ["ROUGE_PATH"]
+except KeyError: 
+   print "Please set the environment variable FOO"
+   sys.exit(1)
+    
 
 class MarginRankingLoss(LossBase):      
     
